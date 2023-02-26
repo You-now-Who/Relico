@@ -43,7 +43,7 @@ function Demo() {
 
 
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
-        <div className="bg-white shadow-lg rounded-lg p-6 h-max">
+        <div className="bg-white shadow-lg rounded-lg p-6 align-middle h-auto" style={{minHeight: "550px"}}>
           {/* <Classify />
            */}
 
@@ -58,26 +58,35 @@ function Demo() {
             </button>
             </div>
             <div className="flex justify-center mb-8">
-          {selectedFile && <img src={URL.createObjectURL(selectedFile)} alt="Selected" id="uploadImage" className="h-64 object-contain" />}
+          {/* {selectedFile && <img src={URL.createObjectURL(selectedFile)} alt="Selected" id="uploadImage" className="h-64 object-contain" />} */}
+
+          {selectedFile ? (
+            <img src={URL.createObjectURL(selectedFile)} alt="Selected" id="uploadImage" className="h-64 object-contain rounded-xl" />
+            ) : (
+            <img src="https://www.customwallpaper.net.au/wp-content/themes/customwallpaper/images/uploadyourown.png" alt="Placeholder" className="h-64 object-contain rounded-xl" />
+            )}
         </div>
-        {prediction !== null && (
-          <div className="flex flex-col items-center">
-            <h2 className="text-xl font-medium mb-2">Prediction:</h2>
-            <p className="text-lg">{prediction}</p>
-          </div>
-        )}
-        <div className="flex justify-center mt-8">
+
+        <div className="flex justify-center mt-3">
           <button className="bg-blue-500 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded" onClick={handleFileUpload}>
             Classify
           </button>
         </div>
 
+        {prediction !== null && (
+          <div className="flex flex-col items-center">
+            <h2 className="text-xl font-bold mt-4 mb-2">Prediction:</h2>
+            <p className="text-lg">{prediction}</p>
+          </div>
+        )}
+        
+
         </div>
         
 
       </main>
-      <footer className="bg-blue-900 text-white text-center py-3 align-bottom">
-        <p className="text-sm">&copy; 2023 OpenAI, Inc. All rights reserved.</p>
+      <footer className="bg-gray-300 text-black font-light text-center py-3 bottom-0">
+        <p className="text-sm">&copy; 2023 Relico. All rights reserved.</p>
       </footer>
     </div>
   );
