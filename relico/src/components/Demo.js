@@ -2,6 +2,7 @@ import Classify from "./Classify";
 import React, { useState } from "react";
 import * as tf from "@tensorflow/tfjs";
 import "@tensorflow/tfjs-backend-webgl";
+import Map from "./Map";
 
 
 function Demo() {
@@ -74,10 +75,14 @@ function Demo() {
         </div>
 
         {prediction !== null && (
+            <>
           <div className="flex flex-col items-center">
             <h2 className="text-xl font-bold mt-4 mb-2">Prediction:</h2>
             <p className="text-lg">{prediction}</p>
           </div>
+          <Map lat={40.7128} longitude={-74.006} zoom={13} />
+            </>
+          
         )}
         
 
