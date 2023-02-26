@@ -6,8 +6,11 @@ import Demo from './components/Demo';
 function App() {
   return (
     <>
+    <div className='bg-gray-200'>
     
       <Demo />
+    
+    </div>
     
     </>
   );
